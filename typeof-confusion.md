@@ -19,7 +19,7 @@ const Patrick = {
 }
 
 // compile time `typeof`
-type StudentProps = typeof Patrick // { age: number, name: string }
+type Student = typeof Patrick // { age: number, name: string }
 // runtime `typeof`
 const jsType = typeof Patrick; // 'object'
 ```
