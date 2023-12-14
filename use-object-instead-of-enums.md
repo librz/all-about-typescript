@@ -1,6 +1,6 @@
 TypeScript has the built-in `Enum` keyword, but it's flawed in some ways & u should use POJO(plain old javascript object) instead.
 
-### What benifit does Enum provides us?
+### What benifit does Enum provide us?
 
 Enum is like a union type, but it also allows you to reference value by key.
 
