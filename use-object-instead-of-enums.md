@@ -11,7 +11,12 @@ Being able to reference value by key is important, it's way harder to make silly
 - [objects-vs-enums](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums)
 - [dont-use-enums-in-typescript](https://dev.to/ivanzm123/dont-use-enums-in-typescript-they-are-very-dangerous-57bh)
 
-### Use POJO instead of Enum
+### Why POJO can replace Enum
+
+- POJO provides reference-value-by-key ability
+- U can easily extract an union type from POJO in TypeScript
+
+### Use POJO instead of Enum - An example
 
 The following is an example of treating object as enum:
 
