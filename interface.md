@@ -4,10 +4,9 @@ interface is used to describe the shape of an object
 
 - support both value & function as fields
 - support optional fields
-- an interface can extend other interface(s) using the `interface A extends B, C` syntax
-- support extracting type of individual field
+- support extending (through `interface A extends B, C` syntax)
+- support easy type extraction of individual fields
 - support generics
-- support custom getter & setter
 
 ### Examples
 
