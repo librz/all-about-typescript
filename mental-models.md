@@ -4,7 +4,7 @@ JavaScript is **weakly typed**, u can use `typeof` to get the *general* type of 
 
 TypeScript comes in and gives us strict types, hence more safety.
 
-But typescript's types only exist in build-time， code written in TypeScript will be compiled into JavaScript to run in host environments(node, browser, etc)
+But typescript's types only exist in build-time, eventually TypeScript code will be compiled into JavaScript to run in host environments(node, browser, etc)
 
 ### what is type?
 
@@ -23,4 +23,3 @@ type `boolean` is
 ### what is generics
 
 Generics are just functions for types. The input is the *placeholder* type, the return is the *result* type.
-
