@@ -2,11 +2,12 @@ interface is used to describe the shape of an object
 
 ### Features
 
-- support both value & function as fields
+- support both value & function as field type
 - support optional fields
 - support extending (through `interface A extends B, C` syntax)
-- support easy type extraction of individual fields
+- support index signature (through `[key: T]: K` syntax)
 - support generics
+- support extracting type of individual field
 
 ### Examples
 
