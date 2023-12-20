@@ -8,6 +8,7 @@ interface is used to describe the shape of an object
 - support index signature (through `[key: T]: K` syntax)
 - support generics
 - support extracting type of individual field
+- support intersection (through `type C = A & B` syntax). Read more about [Difference between extending and intersecting interfaces in TypeScript?](https://stackoverflow.com/questions/52681316/difference-between-extending-and-intersecting-interfaces-in-typescript)
 
 ### Examples
 
