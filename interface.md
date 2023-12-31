@@ -28,7 +28,7 @@ interface HouseDetail extends House {
   buildYear: string;
   taxRate: number;
   printAddress: (location: House['location']) => void;
-  [key: string]: string;
+  [roomNo: number]: string; // room description by room number
 }
 ```
 
