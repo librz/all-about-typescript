@@ -7,7 +7,7 @@ interface is used to describe the shape of an object
 - support extending (through `interface A extends B, C` syntax)
 - support index signature (through `[key: T]: K` syntax)
 - support generics
-- support extracting type of individual field
+- support type extraction of individual field
 - support intersection (through `type C = A & B` syntax). Read more about [Difference between extending and intersecting interfaces in TypeScript?](https://stackoverflow.com/questions/52681316/difference-between-extending-and-intersecting-interfaces-in-typescript)
 
 ### Examples
@@ -28,6 +28,7 @@ interface HouseDetail extends House {
   buildYear: string;
   taxRate: number;
   printAddress: (location: House['location']) => void;
+  [key: string]: string;
 }
 ```
 
