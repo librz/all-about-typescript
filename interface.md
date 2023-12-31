@@ -33,7 +33,7 @@ interface HouseDetail extends House {
 
 ### Diff with class
 
-It's very easy to confuse interface as class, they are *totally* different in that
+It's very easy to confuse interface as class, they are **totally** different in that
 
 - interface is a build-time facility that only exist in the world of TypeScript, on the other hand, class is a valid run-time keyword in JavaScript
 - class can have instances, interface cannot
