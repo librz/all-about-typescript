@@ -2,7 +2,7 @@ TypeScript has the built-in `Enum` keyword, but it's flawed in some ways & u sho
 
 ### What benifit does Enum provide us?
 
-Enum is like a union type, but it also allows you to reference value by specific name(key).
+Enum is like a union type, but it also allows you to reference value by name(key).
 
 Being able to reference value by key is important, it's way harder to make silly mistakes such as mispelling & super friendly when it comes to refactoring.
 
