@@ -1,2 +1,1 @@
-# best-practices-ts
-Best practices when using TypeScript
+## Learn a lot of TypeScript but use it sparingly
