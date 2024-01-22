@@ -33,7 +33,7 @@ function getLangName(value: LangValue): string {
 }
 ```
 
-But using array has a problem: we cannot use it like enum hence no `reference value by key` ability. Using `object of object` can easily solve this:
+But using array has a problem: we cannot use it like enum hence no `reference value by key` ability. Using `object of objects` can easily solve this:
 
 ```typescript
 const Languages = {
