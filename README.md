@@ -1,1 +1,1 @@
-## Learn a lot of TypeScript but use it sparingly
+## Learn **a lot** of TypeScript but use it **sparingly**
