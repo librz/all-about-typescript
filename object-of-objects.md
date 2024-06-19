@@ -58,7 +58,7 @@ function getLangName(value: LangValue): string {
   return lang?.Name || '-';
 }
 
-// use it like an enum (no weekly typed magic values in your code)
+// use it like an enum (no magic values in your code)
 console.log(Languages.Go.Value, Languages.Go.Name);
 ```
 
