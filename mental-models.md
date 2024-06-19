@@ -1,10 +1,14 @@
 ### TypeScript's types only exist in build-time
 
-JavaScript is **weakly typed**, u can use `typeof` to get the *general* type of a value like `string/number/object...` but that's it.
+JavaScript is **weakly typed**, there are a few methods to get type info:
 
-TypeScript comes in and gives us strict types, hence more safety.
+1. use `typeof` to get the *general* type of a value like `string/number/object...`
+2. use `instanceof` to test whether the `prototype` prop of a constructor appears anywhere in the prototype chain of an object
+3. [Duck Typing](https://en.wikipedia.org/wiki/Duck_typing)
 
-But typescript's types only exist in build-time, eventually TypeScript code will be compiled into JavaScript to run in host environments(node, browser, etc)
+But those methods are loose & limited. TypeScript comes in and gives us strict types, hence more safety.
+
+Note: typescript's types only exist in build-time, eventually TypeScript code will be compiled into JavaScript to run in host environments(node, browser, etc)
 
 ### what is type?
 
