@@ -18,7 +18,7 @@ export const StatusToName: Record<Status, string> = {
 // display enum options(which contains value & label)
 export const StatusOptions: Array<{ label: string; value: Status }> =
   Object.entries(StatusToName).map(([value, label]) => ({
-    value: Number(value) as Status,
+    value: Number(value) as Status, // manual type conversion sucks though
     label,
   }));
 ```
