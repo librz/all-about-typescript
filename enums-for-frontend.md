@@ -8,7 +8,7 @@ export enum Status {
   Failure = 2,
 }
 
-// display enum label
+// display enum label (using record can guarantee all enum values are included)
 export const StatusToName: Record<Status, string> = {
   [Status.Loading]: '加载中',
   [Status.Success]: '成功',
