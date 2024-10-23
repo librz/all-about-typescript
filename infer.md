@@ -28,4 +28,7 @@ interface SelectProps {
 type ISelectOption = Pick<SelectProps, 'options'>['options'] extends undefined | (infer T)[]
   ? T
   : never;
+
+// or simply do
+type ISelectOption = SelectProps extends { options?: Array<infer T> } ? T : never;
 ```
