@@ -22,3 +22,9 @@ export const StatusOptions: Array<{ label: string; value: Status }> =
     label,
   }));
 ```
+
+fun fact: u can create an array of all enum values using `Object.values`
+
+```ts
+const statusList = Object.values(Status);
+```
