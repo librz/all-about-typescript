@@ -69,4 +69,4 @@ const underWater3: Fish[] = zoo.filter((pet): pet is Fish => {
 
 ### the never type
 
-When narrowing, you can reduce the options of a union to a point where you have removed all possibilities and have nothing left. In those cases, Typescript will use a `never` tyupe to represent a state that shouldn't exist.
+When narrowing, you can reduce the options of a union to a point where you have removed all possibilities and have nothing left. In those cases, Typescript will use a `never` type to represent a state that shouldn't exist.
