@@ -7,6 +7,7 @@ Define a function with 2 parameters where:
 
 ### Method 1: Generics
 
+```ts
 const func = <T = string | number>(arg1: T, arg2: T extends string ? number : string) => {
     if (typeof arg1 === 'string') {
         return arg1.slice(0, arg2 as number);
@@ -14,9 +15,11 @@ const func = <T = string | number>(arg1: T, arg2: T extends string ? number : st
         return (arg2 as string).slice(0, arg1 as number);
     }
 }
+```
 
 ### Spread operator & Union type
 
+```ts
 const func = (...args: [string, number] | [number, string]) => {
     const [arg1, arg2] = args;
     if (typeof arg1 === 'string') {
@@ -25,3 +28,4 @@ const func = (...args: [string, number] | [number, string]) => {
         return (arg2 as string).slice(0, arg1);
     }
 }
+```
