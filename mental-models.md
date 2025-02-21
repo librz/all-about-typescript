@@ -8,7 +8,7 @@ JavaScript is **weakly typed**, there are a few methods to get type info:
 
 But those methods are loose & limited. TypeScript comes in and gives us strict types, hence more safety.
 
-Note: typescript's types only exist in build-time, eventually TypeScript code will be compiled into JavaScript to run in host environments(node, browser, etc)
+Note: typescript's types only exist prior to build, eventually TypeScript code will be compiled into JavaScript to run in host environments(node, browser, etc)
 
 ### what is type?
 
@@ -27,3 +27,30 @@ type `boolean` is
 ### what is generics
 
 Generics are just functions for types. The input is the *placeholder* type, the return is the *result* type.
+
+### structual type system
+
+TypeScript's type system is structual, not nominal, meaning two types are considered the same if they have the same structure, regardless of their names.
+
+```ts
+type Equals<A, B> = (<T>() => T extends A ? 1 : 2) extends
+    (<T>() => T extends B ? 1 : 2) ? true : false;
+
+// Usage for complex types
+type Test2 = Equals<string | number, number | string>; // true
+type Test1 = Equals<any, string>; // false
+type Test3 = Equals<string, string[][number]>; // true
+
+// there are edge cases where you need to normalize before compare
+// such as when using intersection
+
+type Friend1 = { name: string; age: number }
+type Friend2 = { name: string } & { age: number }
+
+type Normalize<T> = {
+    [K in keyof T]: T[K]
+}
+
+type Test4 = Equals<Friend1, Friend2>; // false
+type Test5 = Equals<Friend1, Normalize<Friend2>>; // true
+```
