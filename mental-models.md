@@ -1,4 +1,4 @@
-### TypeScript's types only exist in build-time
+### TypeScript's types only exist prior to build
 
 JavaScript is **weakly typed**, there are a few methods to get type info:
 
@@ -10,7 +10,7 @@ But those methods are loose & limited. TypeScript comes in and gives us strict t
 
 Note: typescript's types only exist prior to build, eventually TypeScript code will be compiled into JavaScript to run in host environments(node, browser, etc)
 
-### what is type?
+### what is type
 
 Type is 2 things:
 
@@ -41,7 +41,7 @@ type Test2 = Equals<string | number, number | string>; // true
 type Test1 = Equals<any, string>; // false
 type Test3 = Equals<string, string[][number]>; // true
 
-// there are edge cases where you need to normalize before compare
+// there are times where you need to normalize before compare
 // such as when using intersection
 
 type Friend1 = { name: string; age: number }
