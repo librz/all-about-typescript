@@ -1,4 +1,4 @@
-### Overriding prop type
+### override prop type
 
 ```typescript
 interface A {
@@ -10,6 +10,33 @@ interface A {
 type B = Omit<A, 'x'> & {
   x: number
 }
+```
+
+### the famouse Normalize generic
+
+```ts
+// normalized complex types into a much more readable form
+// often used for:
+// 1. simplifying intersections
+// 2. resolving conditional types
+type Normalize<T> = {
+  [key in keyof T]: T[key]
+}
+
+type TypeA = {
+  name: string;
+};
+
+type TypeB = {
+  age: number;
+};
+
+type TypeC = Record<'location' | 'phone', string>;
+
+type ComplexType = TypeA & TypeB & TypeC;
+
+type NormalizedType = Normalize<ComplexType>;
+
 ```
 
 ### Why cannot assign?
