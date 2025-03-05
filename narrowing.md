@@ -1,6 +1,6 @@
 One of the most satisfying features of Typescript is narrowing. Here are a few examples:
 
-```typescript
+```ts
 // equality narrowing
 type Human = { name: string } & ({
   sex: 'male',
@@ -21,7 +21,7 @@ function printHumanInfo(human: Human) {
 }
 ```
 
-```typescript
+```ts
 // in operator narrowing
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
