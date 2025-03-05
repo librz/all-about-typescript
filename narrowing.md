@@ -1,4 +1,4 @@
-One of the most satisfying features of Typescript is narrowing. Here are a few examples:
+One of the most popular features of Typescript is narrowing. Here are a few examples:
 
 ```ts
 // equality narrowing
@@ -41,7 +41,7 @@ There are many types of narrowing, u can find more [here](https://www.typescript
 
 type predicate allows us to tell Typescript that a variable is of certain type
 
-```typescript
+```ts
 // sytax: {var} is {Type}
 function isFish(pet: Fish | Bird): pet is Fish {
   return (pet as Fish).swim !== undefined;
@@ -70,3 +70,5 @@ const underWater3: Fish[] = zoo.filter((pet): pet is Fish => {
 ### the never type
 
 When narrowing, you can reduce the options of a union to a point where you have removed all possibilities and have nothing left. In those cases, Typescript will use a `never` type to represent a state that shouldn't exist.
+
+[official documentation on type narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
