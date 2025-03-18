@@ -2,6 +2,8 @@ In TypeScript, array methods are actually generic methods. It helps with type na
 
 ### signature
 
+Note: predicate must be a type predicate and is not just a callbackFn
+
 ```ts
 // Examples of generic array methods
 array.map<U>(callbackFn)           // Maps elements to type U
@@ -37,42 +39,13 @@ const users: Array<User | null> = [{name: "John"}, { name: "Lisa" }, null];
 const validUsers: User[]  = users.filter(it => Boolean(it)); // error: Type 'null' is not assignable to type 'User'.
 ```
 
-You can provide a type to `filter`, telling TypeScript what's the element type of the filtered array should be:
+We can use a type predicate in the callback function:
 
 ```ts
-const validUsers: User[]  = users.filter<User>(it => Boolean(it)); // OK
-// type inference also works: const validUsers = users.filter<User>(it => Boolean(it));
-```
-
-A more generic approach would be using type predicate(guard):
-
-```ts
-function isValidUser(user: null | User): user is User {
-  return Boolean(user);
-}
-const validUsers: User[]  = users.filter(it => itValidUser(it)); // OK
-```
-
-### working with union types and `find`
-
-```ts
-
-interface Dog { type: 'dog'; bark(): void }
-interface Cat { type: 'cat'; meow(): void }
-type Animal = Dog | Cat;
-
-const animals: Animal[] = [
-  { type: 'dog', bark: () => console.log('Woof!') },
-  { type: 'cat', meow: () => console.log('Meow!') }
-];
-
-// Without generic, TypeScript doesn't know which type we found
-const someDog = animals.find(animal => animal.type === 'dog');
-// Type is Animal | undefined
-
-// With generic, we tell TypeScript what we're looking for
-const dog = animals.find<Dog>(animal => animal.type === 'dog');
-// Type is Dog | undefined
+const validUsers: User[]  = users.filter<User>(it => Boolean(it)); // Signature '(it: User | null): boolean' must be a type predicate.
+const validUsers: User[]  = users.filter<User>((it): it is User => Boolean(it)); // works 
+const validUsers: User[]  = users.filter((it): it is User => Boolean(it)); // actually we rarely need to specify the <User> explicitly
+const validUsers = users.filter((it): it is User => Boolean(it)); // type inference works as well
 ```
 
 ### transforming with `reduce`
