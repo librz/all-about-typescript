@@ -12,7 +12,7 @@ syntax: {var} as {type}, {var} as const
 
 ### type predicate using `is`
 
-type predicate allows us to tell Typescript that a variable is of certain type
+type predicate(also called type guard) allows us to tell Typescript that a variable is of certain type
 
 ```typescript
 // sytax: {var} is {Type}
