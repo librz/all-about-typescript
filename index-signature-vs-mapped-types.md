@@ -1,6 +1,6 @@
 Index signature & mapped types both defines objects with dynamic keys.
 
-#### index signature
+### index signature
 
 index signature is very general, use it when you don't know key names beforehand.
 
@@ -28,13 +28,13 @@ type UserPool = { createdAt: string } & Record<string, User>
 Normally:
 
 - prefer index signature over `Record + intersection` combo
-- prefer `Record` if the type/interface doesn't have other fields other
+- prefer `Record` if there's no need to intersect types
 
-#### mapped types
+### mapped type
 
 syntax: `{ [P in K]: T }`, K usually is a union
 
-You can construct common type utilities such as:
+You can construct common type utilities using mapped type:
 
 ```ts
 
@@ -53,14 +53,17 @@ type Partial<T, K extends keyof T> = {
 type ReadOnly<T> = {
   readonly [P in keyof T]: T[P] // use readonly modifier
 }
+```
 
+advanced:
+
+```ts
 type PickByType<T, V> = {
   [K in keyof T as T[K] extends V ? K : never]: T[K] // this is magic!
 }
 
 interface FormState {
-  firstName: string;
-  lastName: string;
+  name: string;
   age: number;
   sex: "male" | "female";
 }
