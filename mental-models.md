@@ -6,9 +6,9 @@ JavaScript is **weakly typed**, there are a few methods to get type info:
 2. use `instanceof` to test whether the `prototype` prop of a constructor appears anywhere in the prototype chain of an object
 3. [Duck Typing](https://en.wikipedia.org/wiki/Duck_typing)
 
-But those methods are loose & limited. TypeScript comes in and gives us strict types, hence more safety.
+Those methods are loose & limited. TypeScript comes in and gives us strict types, hence more safety.
 
-Note: typescript's types only exist prior to build, eventually TypeScript code will be compiled into JavaScript to run in host environments(node, browser, etc)
+Typescript is a **static** type checker. Meaninging its types only exist prior to build, eventually TypeScript code will be compiled into JavaScript to be executed.
 
 ### what is type
 
