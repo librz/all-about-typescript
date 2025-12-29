@@ -32,8 +32,10 @@ Let's review the type definition:
 2. type R: (...args: R1) => R2
 ```
 
-- argument sender must be assignable to argument receiver: `L1 -> R1` (this explains the argument related rules)
-- return value sender must be assignable to argument receiver: `R2 -> L2` (this explains the return value rule)
+- argument(L1 is sender, R1 is receiver), thus assignability is `L1 -> R1` (this explains the argument related rules)
+- return(R2 is sender, L2 is receiver): `R2 -> L2` (this explains the return value rule)
+
+That's it!
 
 ### an example
 
@@ -47,14 +49,18 @@ type Position3D = Position2D & {
   z: number
 }
 
-type OnJump = (position: Position3D, distance: number) => Pick<Position3D, "z">;
+// I provide the current 3D position & the z-axis distance
+// I expect to get a new z position
+type OnJump = (position: Position3D, distance: number) => Pick<Position3D, "z">; 
 
+// All I need is the current 2D position
+// I return the new 3D position
 type JumpHandler = (position: Position2D) => Position3D;
 
 const handler: JumpHandler = (position) => {
   return {
     ...position,
-    z: 100
+    z: 100 // always jump to position 100
   }
 }
 
