@@ -6,8 +6,8 @@ for example: `(n: number, m: string) => string` can be written as `(...args: [nu
 
 let's define 2 function types:
 
-1. type R: (...args: R1) => R2
-2. type L: (...args: L1) => L2
+1. type L: (...args: L1) => L2
+2. type R: (...args: R1) => R2
 
 let's say we want to assign R(right) to L(eft), here's the rule:
 
@@ -28,8 +28,8 @@ Rule of sum is: sender must be assignale to receiver.
 Let's review the type definition:
 
 ```ts
-1. type R: (...args: R1) => R2
-2. type L: (...args: L1) => L2
+1. type L: (...args: L1) => L2
+2. type R: (...args: R1) => R2
 ```
 
 - argument sender must be assignable to argument receiver: `L1 -> R1` (this explains the argument related rules)
