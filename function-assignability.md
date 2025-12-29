@@ -1,46 +1,62 @@
-type of function can be expressed as: `(...args: A) => R`
+type of function can be expressed as: `(...args: T) => P`
 
 for example: `(n: number, m: string) => string` can be written as `(...args: [number, string]) => string`
 
-### rule
+### rules
 
 let's define 2 function types:
 
-1. type A: (...args: TA) => RA
-2. type B: (...args: TB) => RB
+1. type R: (...args: R1) => R2
+2. type L: (...args: L1) => L2
 
-let's say we want to assign A to B, here's the rule:
+let's say we want to assign R(right) to L(eft), here's the rule:
 
-1. arg length: A <= B
-3. arg order: must be the same
-4. arg scope (of each arg): A >= B 
-2. return scope: A >= B
+1. arg length: L >= R
+2. arg order: must be the same
+3. arg assignability (of each arg): L -> R
+4. return assignability: R -> L
 
-### understand arg rule
+### understand the rules
 
-arg rule can be understood using event: a function that sends signals out as arguments
+arg rule can be understood using event, a function that:
 
-- arguments can be many, but handler(A) may choose to only use some of them. Thus: `args ength: A <= B`
-- arg order rule is self-explanatory
-- for any specific argument, handler(A)'s type can have larger scope, this way, inside handler's body, it's forced to do more checks
+1. sends out signals as arguments
+2. may expect to receive a value as return
+
+Rule of sum is: sender must be assignale to receiver.
+
+Let's review the type definition:
 
 ```ts
-type OnClickBox = (x: number, y: number, color: string) => void;
-
-type ClickHandler = (x: number, y: number | string) => void;
-
-const handler: ClickHandler = (x, y) => {
-    const position: string = `{${x}, ${y}}`;
-    return position;
-}
-
-// assign type ClickHandler to OnClickBox
-const a: OnClickBox = handler; // no problem
+1. type R: (...args: R1) => R2
+2. type L: (...args: L1) => L2
 ```
 
-### understand return scope rule
+- argument sender must be assignable to argument receiver: `L1 -> R1` (this explains the argument related rules)
+- return value sender must be assignable to argument receiver: `R2 -> L2` (this explains the return value rule)
 
-return scope rule can be understood using getter function
+### an example
 
-kind of self-explnatory, maybe I'll come back to add an example later~
+```ts
+type Position2D = {
+  x: number,
+  y: number
+}
 
+type Position3D = Position2D & {
+  z: number
+}
+
+type OnJump = (position: Position3D, distance: number) => Pick<Position3D, "z">;
+
+type JumpHandler = (position: Position2D) => Position3D;
+
+const handler: JumpHandler = (position) => {
+  return {
+    ...position,
+    z: 100
+  }
+}
+
+const a: OnJump = handler; // no problem
+```
