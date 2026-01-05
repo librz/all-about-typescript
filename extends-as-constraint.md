@@ -1,3 +1,5 @@
+> Gist: Think of `extends` as `assignable` at all times
+
 we all know `extends` can be used to extend class/interface, it does what its name says: extending existing fields.
 
 But when used to specify generic's placeholder types, it's actually a constraint:
